@@ -13,11 +13,11 @@
 `src/` が無ければ、west の pin が `9c3ff48` より前を指している。
 
 ```bash
-ls src/oil_distribution/murakumo.cljc && git log --oneline -1
+ls src/oil_distribution/murakumo.kotoba && git log --oneline -1
 ```
 
 ```
-src/oil_distribution/murakumo.cljc
+src/oil_distribution/murakumo.kotoba
 9c3ff48 Merge pull request #1 from etzhayyim/rescue/murakumo-wip-20260718
 ```
 

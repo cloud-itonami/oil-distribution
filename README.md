@@ -12,7 +12,7 @@ descriptor と、その書き込みを止める deny-by-default gate。ターミ
 | | ここにあるか |
 |---|---|
 | actor が**何を名乗り、何を要求し、どの pipeline を持つと宣言しているか** | **ある**（`actor-manifest.jsonld` 8,614 B / `.well-known/did.json`） |
-| **gate**（attestation が 7 つ揃わなければ effect を 1 つも出さない判断） | **ある**（`src/oil_distribution/murakumo.cljc`、219 行） |
+| **gate**（attestation が 7 つ揃わなければ effect を 1 つも出さない判断） | **ある**（`src/oil_distribution/murakumo.kotoba`、219 行） |
 | ターミナルを数えるグラフ、cron を撃つ scheduler、XRPC を受ける server | **無い** |
 | 製品ターミナル・卸ハブの実データ | **無い** |
 
@@ -30,7 +30,7 @@ descriptor と、その書き込みを止める deny-by-default gate。ターミ
 
 | 出所 | 名乗り | 2026-08-09 実測 |
 |---|---|---|
-| `actor-manifest.jsonld` の `@id`<br>`src/oil_distribution/murakumo.cljc` の `actor-did` | `did:web:oil-distribution.etzhayyim.com` | **解決しない**。`oil-distribution.etzhayyim.com` に A/AAAA レコードが無く、`curl` は `000`（接続前に失敗） |
+| `actor-manifest.jsonld` の `@id`<br>`src/oil_distribution/murakumo.kotoba` の `actor-did` | `did:web:oil-distribution.etzhayyim.com` | **解決しない**。`oil-distribution.etzhayyim.com` に A/AAAA レコードが無く、`curl` は `000`（接続前に失敗） |
 | `.well-known/did.json` の `id` | `did:web:etzhayyim.com:actor:oil-distribution` | **解決する**。`https://etzhayyim.com/actor/oil-distribution/did.json` が `200` |
 
 **gate が名乗るのは解決しない方**である（`murakumo.cljc:6`）。effect の
@@ -124,7 +124,7 @@ inventory risk coverage」と説明されているが、8 pipeline のどれも�
 
 ## gate は何を止めるか
 
-`src/oil_distribution/murakumo.cljc` は **15 cell × 7 gate** の deny-by-default。
+`src/oil_distribution/murakumo.kotoba` は **15 cell × 7 gate** の deny-by-default。
 7 つの attestation が 1 つでも欠けると `:status :blocked` で `:effects` は空になる
 （実測: 6/7 揃えても `:blocked`、`all-cell-plans` は 15 cell 全部 blocked で総 effect 数 0）。
 
@@ -184,7 +184,7 @@ commit は 4 本だけ（2026-06-24 snapshot → 2026-07-02 identity 移行 →
   変わっても赤くならない。`marine-insurance` は `test/…/docs_test.cljs` でこれを
   固定している —— 同じものがここにも要る。
 - **west pin が遅れていた。** superproject の pin は `53f6a34`（2026-07-02）で、
-  `src/oil_distribution/murakumo.cljc` を含む `9c3ff48` を指していなかった。この
+  `src/oil_distribution/murakumo.kotoba` を含む `9c3ff48` を指していなかった。この
   README を書く時点で main に合わせている。
 - **identity の不整合を直していない**（上記 2 名の DID、live との 5 か所差分）。
 - **collection 語彙の不一致を直していない**（gate と manifest で交わり空）。

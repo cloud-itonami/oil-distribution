@@ -24,7 +24,7 @@ src/oil_distribution/murakumo.kotoba
 `src/` が無い場合は superproject 側で pin を進める（詳細は skill `west-pin-advance`）:
 
 ```bash
-nbb scripts/gen-west-manifest.cljs --entry oil-distribution
+kbb --backend sci scripts/gen-west-manifest.cljk --entry oil-distribution
 ```
 
 ---
@@ -206,7 +206,7 @@ done
 ```
 
 ```bash
-nbb --classpath "src:/tmp" /tmp/probe.cljs
+kbb --backend sci --classpath "src:/tmp" /tmp/probe.cljs
 ```
 
 ```
